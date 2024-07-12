@@ -9,7 +9,11 @@ class UserProfile(models.Model):
     first_name = models.CharField(max_length=100, blank=True, null=True)
     last_name = models.CharField(max_length=100, blank=True, null=True)
     last_login_date = models.DateField(blank=True, null=True)
-
+    CHOICES_ROLE = (
+        ('student','student'),
+        ('teacher', 'teacher')
+    )
+    role = models.CharField(choices=CHOICES_ROLE, max_length=100)
     def __str__(self):
         return self.user.username
 
